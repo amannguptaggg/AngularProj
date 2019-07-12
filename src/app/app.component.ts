@@ -42,4 +42,20 @@ CountryDetails:any[] =[
     ],
   }
 ]
+
+getcolor(country:any){
+  switch(country){
+    case 'India' :
+      return 'red';
+    case 'UK':
+      return 'green';
+  }
+}
+myColor(value) {
+     if(value == true){
+       return 'brown'
+     }else {
+       return 'blue'
+     }
+}
 }
