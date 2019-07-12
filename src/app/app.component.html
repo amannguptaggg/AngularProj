@@ -3,10 +3,17 @@
   <h1>
     Welcome to {{ title }}!!
   </h1>
-  <h2> Component Directive Example.</h2>
-  <div *ngIf="checkIf"> This is Structural Directive Test (ngIf) </div>
-  <button (click)="btnClickMe()"> Click Me</button>
-  <hr>
-  <p [ngStyle]="{'color':'red'}">Attribute Directive Example (ngStyle)</p>
+  <h2> Use Of ngIf </h2>
+  <input type="radio" name="radiobtn1" (click)="btnValueHere(true)">  True
+
+  <input type="radio" name="radiobtn1" (click)="btnValueHere(False)">  False
+
+  <div *ngIf="isvalid">
+    This is valid Data.
   </div>
+
+<div *ngIf="!isvalid">
+    This is not valid Data.
+</div>
+</div>  
 <router-outlet></router-outlet>
