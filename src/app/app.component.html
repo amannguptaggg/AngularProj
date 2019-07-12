@@ -4,6 +4,9 @@
     Welcome to {{ title }}!!
   </h1>
   <h2> Component Directive Example.</h2>
+  <div *ngIf="checkIf"> This is Structural Directive Test (ngIf) </div>
   <button (click)="btnClickMe()"> Click Me</button>
+  <hr>
+  <p [ngStyle]="{'color':'red'}">Attribute Directive Example (ngStyle)</p>
   </div>
 <router-outlet></router-outlet>
