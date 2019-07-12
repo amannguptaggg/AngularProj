@@ -3,19 +3,22 @@
   <h1>
     Welcome to {{ title }}!!
   </h1>
-  <h2> Use Of ngFor </h2>
+  <h2> TrackBy With ngFor </h2>
   <p>
-    index: return index;<br>
-    first : return true on first; else false; <br>
-    last : return true on last; else false; <br>
-    even : return true on even ; else false; <br>
-    odd : return true on odd ; else false;<br>
+      
+          TrackBy optimize  the binding  data. 
   </p>
-  <ul style="list-style: none;text-align:left">
-    <li *ngFor="let p of Student;let i=index;let f=first;let l=last;let e=even; let o = odd">
-      Index:{{i+1}}  > Name: {{p.name}} >>First: {{f}} >>Last: {{l}}  >>Even: {{e}} >>Odd: {{o}}
-    </li>
-  </ul>
-
+<table border="1px" style="border: orange">
+  <tr *ngFor="let s of Student;let i=index;TrackBy:trackBystdentId">
+    <td>{{i+1}}</td>
+    <td>{{s.stdentId}}</td>
+    <td>{{s.name}}</td>
+    <td>{{s.gender}}</td>
+    <td>{{s.age}}</td>
+    <td>{{s.Course}}</td>
+  </tr>
+</table>
+<br>
+<button (click)="getMore()">Add More Data</button>
  </div>
 <router-outlet></router-outlet>
