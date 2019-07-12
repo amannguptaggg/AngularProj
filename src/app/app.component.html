@@ -3,19 +3,14 @@
   <h1>
     Welcome to {{ title }}!!
   </h1>
-  <h2> Grouping With ngFor </h2>
-  <p>
-      
-          TrackBy optimize  the binding  data. 
+  <h2> ngClass Test </h2>
+  <p [ngClass]="'classOne classtwo classThree'"> 
+      >> ngClass directive allows to set the css class dynamically for the DOM. <br>
+      >> ngClass with String. <br>
+      >> ngClass with array. <br>
+      >> ngClass with object. <br>
+      >> ngClass with component method. <br>
   </p>
-  <br>
-  <h4>
-  <ul *ngFor="let c of CountryDetails" style="text-align: left">
-      <li [ngStyle]="{'color':getcolor(c.country)}">{{c.country}}</li>
-      <ul *ngFor="let person of c.people;let e=even">
-        <li [ngStyle]="{'color':myColor(e)}">{{person.name}}</li>
-      </ul>
-  </ul>
-  </h4>
+  <hr>
  </div>
 <router-outlet></router-outlet>
