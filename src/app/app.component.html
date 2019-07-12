@@ -3,7 +3,7 @@
   <h1>
     Welcome to {{ title }}!!
   </h1>
-  <h2> ngClass Test as Array </h2>
+  <h2> ngClass Test as Method </h2>
   <p [ngClass]="['classOne','classtwo','classThree']"> 
       >> ngClass directive allows to set the css class dynamically for the DOM. <br>
       >> ngClass with String. <br>
@@ -12,5 +12,6 @@
       >> ngClass with component method. <br>
   </p>
   <hr>
+  <div [ngClass]="getCssClass('mode')"> Using ngClass With component Method.</div>
  </div>
 <router-outlet></router-outlet>

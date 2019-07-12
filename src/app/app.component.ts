@@ -43,19 +43,19 @@ CountryDetails:any[] =[
   }
 ]
 
-getcolor(country:any){
-  switch(country){
-    case 'India' :
-      return 'red';
-    case 'UK':
-      return 'green';
+getCssClass(flag:string) {
+  let cssclass;
+  if(flag == "mode"){
+    cssclass={
+    'classOne': true,
+    'classTwo' : true,
+    }
+  }else{
+    cssclass={
+      'classone':false,
+      'classTwo': true,
+    }
   }
-}
-myColor(value) {
-     if(value == true){
-       return 'brown'
-     }else {
-       return 'blue'
-     }
+  return cssclass;
 }
 }
