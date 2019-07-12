@@ -3,22 +3,17 @@
   <h1>
     Welcome to {{ title }}!!
   </h1>
-  <h2> TrackBy With ngFor </h2>
+  <h2> Grouping With ngFor </h2>
   <p>
       
           TrackBy optimize  the binding  data. 
   </p>
-<table border="1px" style="border: orange">
-  <tr *ngFor="let s of Student;let i=index;TrackBy:trackBystdentId">
-    <td>{{i+1}}</td>
-    <td>{{s.stdentId}}</td>
-    <td>{{s.name}}</td>
-    <td>{{s.gender}}</td>
-    <td>{{s.age}}</td>
-    <td>{{s.Course}}</td>
-  </tr>
-</table>
-<br>
-<button (click)="getMore()">Add More Data</button>
+  <br>
+  <ul *ngFor="let c of CountryDetails" style="text-align: left">
+      <li>{{c.country}}</li>
+      <ul *ngFor="let person of c.people">
+        <li>{{person.name}}</li>
+      </ul>
+  </ul>
  </div>
 <router-outlet></router-outlet>
