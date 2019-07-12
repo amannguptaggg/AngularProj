@@ -7,13 +7,16 @@
   <input type="radio" name="radiobtn1" (click)="btnValueHere(true)">  True
 
   <input type="radio" name="radiobtn1" (click)="btnValueHere(False)">  False
+  <br>
 
-  <div *ngIf="isvalid">
-    This is valid Data.
-  </div>
+  <div *ngIf="isvalid;then thenBlock ;else elseBlock"> </div>
+      
+  <ng-template #thenBlock>
+         This is valid
+  </ng-template>
 
-<div *ngIf="!isvalid">
+<ng-template #elseBlock>
+  
     This is not valid Data.
-</div>
-</div>  
+</ng-template> 
 <router-outlet></router-outlet>
