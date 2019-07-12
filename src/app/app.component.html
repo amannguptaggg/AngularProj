@@ -3,15 +3,19 @@
   <h1>
     Welcome to {{ title }}!!
   </h1>
-  <h2> ngClass Test as Method </h2>
+  <h2> Data Binding  </h2>
   <p [ngClass]="['classOne','classtwo','classThree']"> 
-      >> ngClass directive allows to set the css class dynamically for the DOM. <br>
-      >> ngClass with String. <br>
-      >> ngClass with array. <br>
-      >> ngClass with object. <br>
-      >> ngClass with component method. <br>
+      >> Data binding means to bind the view With controller <br>
+      >> One Way binding & Two way Binding <br>
+      >> <b>One Way Bidning:</b>  <br>
+      >> Interpolation Binding <br>
+      >> Property Binding <br>
+      >> Style Binding <br>
+      >> Class Binding <br>
+      >> Attribute Binding <br>
+      >> <b>Property Binding</b> <br>
+      >> View  To Component (event binding) <br>
   </p>
   <hr>
-  <div [ngClass]="getCssClass('mode')"> Using ngClass With component Method.</div>
  </div>
 <router-outlet></router-outlet>
