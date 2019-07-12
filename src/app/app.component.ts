@@ -7,10 +7,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'My New Project';
-  public choose="";
-  setValue(event:any){
-    this.choose = event.target.value;
+Student : any[] = [
+  {
+    'name':'Aman'
+  },
+  {
+    'name' :'Rahul'
+  },
+  {
+    'name' : 'Mahesh'
+  },
+  {
+    'name': 'Golu'
   }
+]
 
 
 }

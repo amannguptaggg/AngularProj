@@ -3,22 +3,19 @@
   <h1>
     Welcome to {{ title }}!!
   </h1>
-  <h2> Use Of ngSwitch </h2>
-  <select (change)="setValue($event)">
-    <option value="">--Select--</option>
-    <option value="one">One</option>
-    <option value="two">Two</option>
-    <option value="three">Three</option>
-    <option value="Nothing">Nothing</option>
-  </select>
-
-<div [ngSwitch]="choose">
-  <h3 *ngSwitchCase="'one'">First</h3>
-  <h3 *ngSwitchCase="'two'">Two</h3>
-  <h3 *ngSwitchCase="'three'">Three</h3>
-  <h3 *ngSwitchDefault>Default</h3>
-</div>
-
+  <h2> Use Of ngFor </h2>
+  <p>
+    index: return index;<br>
+    first : return true on first; else false; <br>
+    last : return true on last; else false; <br>
+    even : return true on even ; else false; <br>
+    odd : return true on odd ; else false;<br>
+  </p>
+  <ul style="list-style: none;text-align:left">
+    <li *ngFor="let p of Student;let i=index;let f=first;let l=last;let e=even; let o = odd">
+      Index:{{i+1}}  > Name: {{p.name}} >>First: {{f}} >>Last: {{l}}  >>Even: {{e}} >>Odd: {{o}}
+    </li>
+  </ul>
 
  </div>
 <router-outlet></router-outlet>
