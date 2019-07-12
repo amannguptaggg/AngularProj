@@ -7,10 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'My New Project';
-  isvalid:boolean=true;
-
-  btnValueHere(btnvalid) {
-    this.isvalid = btnvalid;
+  public choose="";
+  setValue(event:any){
+    this.choose = event.target.value;
   }
 
 

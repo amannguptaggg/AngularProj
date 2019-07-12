@@ -3,20 +3,22 @@
   <h1>
     Welcome to {{ title }}!!
   </h1>
-  <h2> Use Of ngIf </h2>
-  <input type="radio" name="radiobtn1" (click)="btnValueHere(true)">  True
+  <h2> Use Of ngSwitch </h2>
+  <select (change)="setValue($event)">
+    <option value="">--Select--</option>
+    <option value="one">One</option>
+    <option value="two">Two</option>
+    <option value="three">Three</option>
+    <option value="Nothing">Nothing</option>
+  </select>
 
-  <input type="radio" name="radiobtn1" (click)="btnValueHere(False)">  False
-  <br>
+<div [ngSwitch]="choose">
+  <h3 *ngSwitchCase="'one'">First</h3>
+  <h3 *ngSwitchCase="'two'">Two</h3>
+  <h3 *ngSwitchCase="'three'">Three</h3>
+  <h3 *ngSwitchDefault>Default</h3>
+</div>
 
-  <div *ngIf="isvalid;then thenBlock ;else elseBlock"> </div>
-      
-  <ng-template #thenBlock>
-         This is valid
-  </ng-template>
 
-<ng-template #elseBlock>
-  
-    This is not valid Data.
-</ng-template> 
+ </div>
 <router-outlet></router-outlet>
