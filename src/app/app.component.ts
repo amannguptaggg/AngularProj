@@ -9,8 +9,5 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'My New Project';
 
-  constructor(private router:Router){}
-  showStudent(){
-    this.router.navigate(['/student']);
-  }
+ 
 }

@@ -6,7 +6,12 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
 
 const routes: Routes = [
   {
-    path:'student',
+    path:"",
+    redirectTo:'student',
+    pathMatch:'full',
+  },
+  {
+    path: 'student',
     component:StudentComponent
   },
   {
