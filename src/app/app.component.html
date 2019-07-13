@@ -3,13 +3,19 @@
   <h1>
     Welcome to {{ title }}!!
   </h1>
-  <h2> Event Binding  </h2>
-  <p [ngClass]="['classOne','classtwo','classThree']"> 
-    </p>
+  <h2> Two Way Binding  </h2>
+  <pre [ngClass]="['classOne','classtwo','classThree']"> 
+    
+      <code>
+
+       < input [value]='data1' (input)='data=$event.target.value' > <br>
+       Binding Using ngModel Directive
+       < input [(ngModel)]='data' >
+      </code>
+</pre>
+  
   <button (click)="ClickMe();">Click Me</button>  <br>
   <button (click)="ClickMe();">Click Me</button>  <br>
   <hr>
  </div>
 <router-outlet></router-outlet>
-
-
