@@ -43,6 +43,26 @@ CountryDetails:any[] =[
   }
 ]
 
-data:string = 'Aman Gupta';
-data1:string= '';
+employee : any[] = [
+  {
+    code: 'rh11',
+    name: 'rahul',
+    salary: 50000,
+  },
+  {
+    code: 'sh1002',
+    name: 'shachin',
+    salary: 550000,
+  },
+  {
+    code: 'mj11',
+    name: 'Manoj',
+    salary: 650000,
+  },
+  {
+    code: 'su667',
+    name: 'Subham',
+    salary: 120002,
+  }
+]
 }

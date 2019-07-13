@@ -3,22 +3,13 @@
   <h1>
     Welcome to {{ title }}!!
   </h1>
-  <h2> Two Way Binding  </h2>
-  <pre [ngClass]="['classOne','classtwo','classThree']"> 
-    
-      <code>
-
-       < input [value]='data1' (input)='data=$event.target.value' > <br>
-       Binding Using ngModel Directive
-       < input [(ngModel)]='data' >
-      </code>
-</pre>
-  Enter your Name: <br>
-  <input [value]='data' (input)='data=$event.target.value'> <br>
-  your Name: {{data}}  
-  <hr>
-  <input [(ngModel)]='data1'> <br>
-  {{data1}}
-
- </div>
-<router-outlet></router-outlet>
+  <br>
+  <h3> Router Link</h3> <br>
+  <a [routerLink]="['/student']">student</a>
+  <br>
+  <a [routerLink]="['/studentDetails']">student Details</a>
+  
+</div>
+<div>
+    <router-outlet> </router-outlet>
+</div>
