@@ -13,9 +13,9 @@
        < input [(ngModel)]='data' >
       </code>
 </pre>
-  
-  <button (click)="ClickMe();">Click Me</button>  <br>
-  <button (click)="ClickMe();">Click Me</button>  <br>
+  Enter your Name: <br>
+  <input [value]='data' (input)='data=$event.target.value'> <br>
+  your Name: {{data}}
   <hr>
  </div>
 <router-outlet></router-outlet>

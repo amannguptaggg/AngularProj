@@ -43,19 +43,6 @@ CountryDetails:any[] =[
   }
 ]
 
-getCssClass(flag:string) {
-  let cssclass;
-  if(flag == "mode"){
-    cssclass={
-    'classOne': true,
-    'classTwo' : true,
-    }
-  }else{
-    cssclass={
-      'classone':false,
-      'classTwo': true,
-    }
-  }
-  return cssclass;
-}
+data:string = 'Aman Gupta';
+
 }
