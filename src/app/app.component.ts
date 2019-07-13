@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,62 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'My New Project';
-Student : any[];
- constructor() { 
-}
-CountryDetails:any[] =[
-  {
-    'country': 'India',
-    'people' : [
-      {
-      "name" : "ajeet kumar",
-      },
-      {
-        "name" : "Aman Gupta",
-      }
-        ,
-      {
-          "name" :"Rahul Singh",
-      }
-    ],
-  },
-  {
-    'country': 'UK',
-    'people' : [
-      {
-      "name" : "ABC",
-      },
-      {
-        "name" : "EFG",
-      }
-        ,
-      {
-          "name" :"HIJ",
-      }
-    ],
-  }
-]
 
-employee : any[] = [
-  {
-    code: 'rh11',
-    name: 'rahul',
-    salary: 50000,
-  },
-  {
-    code: 'sh1002',
-    name: 'shachin',
-    salary: 550000,
-  },
-  {
-    code: 'mj11',
-    name: 'Manoj',
-    salary: 650000,
-  },
-  {
-    code: 'su667',
-    name: 'Subham',
-    salary: 120002,
+  constructor(private router:Router){}
+  showStudent(){
+    this.router.navigate(['/student']);
   }
-]
 }
