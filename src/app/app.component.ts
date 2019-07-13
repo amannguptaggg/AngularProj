@@ -44,5 +44,5 @@ CountryDetails:any[] =[
 ]
 
 data:string = 'Aman Gupta';
-
+data1:string= '';
 }

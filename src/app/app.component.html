@@ -15,7 +15,10 @@
 </pre>
   Enter your Name: <br>
   <input [value]='data' (input)='data=$event.target.value'> <br>
-  your Name: {{data}}
+  your Name: {{data}}  
   <hr>
+  <input [(ngModel)]='data1'> <br>
+  {{data1}}
+
  </div>
 <router-outlet></router-outlet>
