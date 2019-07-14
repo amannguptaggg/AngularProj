@@ -3,14 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { StudentComponent } from './student/student.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppComponent } from './app.component';
 
 
 const routes: Routes = [
-  {
-    path:"",
-    redirectTo:'student',
-    pathMatch:'full',
-  },
   {
     path: 'student',
     component:StudentComponent
@@ -19,10 +15,6 @@ const routes: Routes = [
     path: 'studentDetails',
     component: StudentDetailsComponent
   },
-  {
-    path:'**',
-    component: PageNotFoundComponent
-  }
 ];
 
 @NgModule({

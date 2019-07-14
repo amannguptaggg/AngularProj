@@ -3,22 +3,8 @@
   <h1>
     Welcome to {{ title }}!!
   </h1>
-  <br>
-  <h3> Router Link</h3> <br>
-  
-  <br>
-  <a [routerLink]="['/studentDetails']">student Details</a><br>
-  <a [routerLink]="['/parentsDetails']">Parents Details</a>
-  
-</div> <br>
-<h2>{{text}}</h2>
 
-<table>
-  <tr *ngFor="let emp of emp">
-    <td>{{emp.code}}</td>
-    <td>{{emp.name}}</td>
-  </tr>
-</table>
-<div>
-    <router-outlet> </router-outlet>
+  
 </div>
+
+    <router-outlet> </router-outlet>
