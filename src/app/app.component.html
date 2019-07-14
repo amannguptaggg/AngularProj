@@ -12,6 +12,13 @@
   
 </div> <br>
 <h2>{{text}}</h2>
+
+<table>
+  <tr *ngFor="let emp of emp">
+    <td>{{emp.code}}</td>
+    <td>{{emp.name}}</td>
+  </tr>
+</table>
 <div>
     <router-outlet> </router-outlet>
 </div>
