@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'newApp';
+  title = 'My New Project';
+
+
+registerForm(regForm:any) {
+     
+   var email = regForm.controls.emailF.value;
+    console.log(regForm);
+    alert(email);
+  }
+
+
+
 }
