@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormGroup,FormControl,FormBuilder, NgForm,Validators} from '@angular/forms'
+import { formsignup } from './formsignup';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -29,7 +30,23 @@ constructor(private _formbuilder:FormBuilder,private _loginFormBuilder:FormBuild
    });
   }
 
-ngOnInit() {}
+ngOnInit() {
+  //to get chnage in each field.
+  this.signupForm.get('fname').valueChanges.subscribe(
+    Uname=>{
+      console.log('fname changed'+ Uname);
+    }
+  )
+
+  this.loginData.valueChanges.subscribe((Uname:formsignup)=> {
+   
+    console.log("logName Changed"+"  "+Uname.logName);
+    console.log("logPass change"+"   "+Uname.logPass);
+
+  }
+
+  );
+}
 // Getting Each Field  Value.
 PostData() {
   this.emailName= this.signupForm.get('fname').value;
