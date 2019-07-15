@@ -47,14 +47,23 @@
     </div>
   </div>
 <div class="mt-5">
-  <table border="1px">
-    <tr>
-      <th>Your Email</th>
-      <th>Your Password</th>
-    </tr>
-    <tr><td>{{logEmail}}</td>
-    <td>{{logPassword}}</td> </tr>
-  </table>
+   <h3 class="text-center">Form Array Form</h3>
+   <form [formGroup]="form" (ngSubmit)="subArrForm()">
+     <div formArrayName="contactNos" class="m-3">
+       <div *ngFor="let contact of form.controls.contactNos.controls; index as i">
+         <input [formControlName]="i" placeholder="contactNos">
+       </div>
+     </div>
+     <button type="submit" class="btn btn-primary px-4">Submit</button>
+   </form>
+</div>
+<div class="row mt-4">
+  <div class="col-lg-6">
+     <button (click)="addContactNo()" class="btn btn-block btn-success">Add Contact Number</button>
+  </div>
+  <div class="col-lg-6">
+     <button (click)="setPreset()" class="btn btn-block btn-success">Set Preset</button>
+  </div>
 </div>
 <a [routerLink]="['/student']"> Load Student Portal</a>
 <router-outlet></router-outlet>

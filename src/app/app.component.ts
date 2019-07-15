@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormGroup,FormControl,FormBuilder, NgForm,Validators,FormArray} from '@angular/forms'
+import {FormGroup,FormControl,FormBuilder,Validators,FormArray} from '@angular/forms';
 import { formsignup } from './formsignup';
 @Component({
   selector: 'app-root',
@@ -17,6 +17,10 @@ phone: string="";
 logEmail:string="";
 logPassword:string="";
 
+
+FormGroup:FormGroup;
+form:any;
+
 constructor(private _formbuilder:FormBuilder,private _loginFormBuilder:FormBuilder) {
    this.signupForm = this._formbuilder.group({
      fname: ['',[Validators.required,Validators.email]],
@@ -31,15 +35,27 @@ constructor(private _formbuilder:FormBuilder,private _loginFormBuilder:FormBuild
   }
 
 ngOnInit() {
-  const arr = new FormArray([
-      new FormControl(),
-      new FormControl(),
-   ]);
-   // when we use setValue each value must be given,but patch value can takes less
-   arr.patchValue(['Aman']);
-  console.log(arr.value);
-  console.log(arr.status);
+  this.form = new FormGroup({
+    contactNos:new FormArray([
+      new FormControl('878934332'),
+      new FormControl('453433435')
+    ]),
+  });
 }
+
+addContactNo() {
+  this.form.get('contactNos').push(new FormControl());
+}
+
+subArrForm(){
+  console.log(this.form.get('contactNos').value);
+  console.log(this.form.value);
+}
+
+setPreset() {
+  this.form.get('contactNos').patchValue(['12345678','123456755']);
+}
+
 // Getting Each Field  Value.
 PostData() {
   this.emailName= this.signupForm.get('fname').value;
