@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormGroup,FormControl,FormBuilder, NgForm,Validators} from '@angular/forms'
+import {FormGroup,FormControl,FormBuilder, NgForm,Validators,FormArray} from '@angular/forms'
 import { formsignup } from './formsignup';
 @Component({
   selector: 'app-root',
@@ -31,27 +31,14 @@ constructor(private _formbuilder:FormBuilder,private _loginFormBuilder:FormBuild
   }
 
 ngOnInit() {
-  //to get chnage in each field.
-  this.signupForm.get('fname').statusChanges.subscribe(
-    status=>{
-      console.log('fname status changed'+ status);
-    }
-  )
-  this.signupForm.get('fpass').statusChanges.subscribe(
-    stu=>{
-      console.log("fpass status:"+ stu);
-    }
-  )
-
-  this.loginData.valueChanges.subscribe((Uname:formsignup)=> {
-   //for getting all values of form (Make a formsignup.ts file for this.)
-   //for getting all change values of form (Make a formsignup.ts file for this.)
-    console.log("logName Changed"+"  "+Uname.logName);
-    console.log("logPass change"+"   "+Uname.logPass);
-
-  }
-
-  );
+  const arr = new FormArray([
+      new FormControl(),
+      new FormControl(),
+   ]);
+   // when we use setValue each value must be given,but patch value can takes less
+   arr.patchValue(['Aman']);
+  console.log(arr.value);
+  console.log(arr.status);
 }
 // Getting Each Field  Value.
 PostData() {
