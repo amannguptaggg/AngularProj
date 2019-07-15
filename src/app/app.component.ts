@@ -20,7 +20,7 @@ constructor(private _formbuilder:FormBuilder,private _loginFormBuilder:FormBuild
    this.signupForm = this._formbuilder.group({
      fname: ['',Validators.required],
      fpass: ['',Validators.required],
-     fphone: ['',Validators.required,Validators.minLength(3)],
+     fphone: ['',Validators.required],
    });
 
    this.loginData = this._loginFormBuilder.group({
@@ -30,18 +30,23 @@ constructor(private _formbuilder:FormBuilder,private _loginFormBuilder:FormBuild
   }
 
 ngOnInit() {}
-
-PostData(signupForm:any) {
-   this.emailName = signupForm.controls.fname.value;
-   this.password = signupForm.controls.fpass.value;
-   this.phone = signupForm.controls.fphone.value;
+// Getting Each Field  Value.
+PostData() {
+  this.emailName= this.signupForm.get('fname').value;
+  this.password= this.signupForm.get('fpass').value;
+  this.phone= this.signupForm.get('fphone').value;
   alert(this.emailName+" "+this.password+" "+this.phone);
 }
-
-LoginForm(loginData:any) {
-  this.logEmail = loginData.controls.logName.value;
-  this.logPassword = loginData.controls.logPass.value;
+//Getting all value form the form.
+LoginForm() {
+  this.logEmail = this.loginData.value;
+  console.log(this.logEmail);
 }
 
+ResetForm() {
+  this.signupForm.reset({
+    fname:'xyz@gmail.com'
+  });
+}
 
 }

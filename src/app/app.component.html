@@ -7,7 +7,7 @@
   <div class="container-fluid">
     <div class="row mt-3">
      <div class="col-lg-6" [ngClass]="['classThree']">
-      <form [formGroup]="signupForm"  (ngSubmit)="PostData(signupForm)">
+      <form [formGroup]="signupForm">
         <h2 class="text-center"> Register Here </h2>
         <div class="form-group">
           <input type="email" class="form-control" placeholder="Enter Email" formControlName="fname" >
@@ -20,12 +20,19 @@
             </div>
             <br>
             <div>
-              <input type="submit" value="From data" [disabled]="!signupForm.valid">
+              <div class="row m-0 p-0">
+                <div class="col-6">
+                <button type="submit" (click)="PostData()" [disabled]="!signupForm.valid" class="btn btn-block btn-success">LogIn</button>
+                </div>
+                <div class="col-6">
+                  <button type="submit" (click)="ResetForm()" class="btn btn-danger btn-block">Reset</button>
+                </div>
+              </div>
             </div>  
       </form>
       </div>
       <div class="col-6" [ngClass]="['classOne']">
-        <form [formGroup]="loginData" (ngSubmit)="LoginForm(loginData)">
+        <form [formGroup]="loginData">
           <div class="form-group">
             <input class="form-control" formControlName="logName" placeholder="Enter Name">
           </div>
@@ -33,7 +40,7 @@
             <input class="form-control" formControlName="logPass" placeholder="Enter Password">
           </div>
           <div class="form-group">
-            <input type="submit" value="LogIn">
+            <button type="submit" (click)="LoginForm()" class="btn btn-block btn-success">Login</button>
           </div>
         </form>
       </div>
