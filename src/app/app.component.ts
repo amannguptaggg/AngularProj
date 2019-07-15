@@ -39,7 +39,7 @@ ngOnInit() {
   )
 
   this.loginData.valueChanges.subscribe((Uname:formsignup)=> {
-   
+   //for getting all change values of form (Make a formsignup.ts file for this.)
     console.log("logName Changed"+"  "+Uname.logName);
     console.log("logPass change"+"   "+Uname.logPass);
 
