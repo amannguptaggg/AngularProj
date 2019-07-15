@@ -19,8 +19,8 @@ logPassword:string="";
 
 constructor(private _formbuilder:FormBuilder,private _loginFormBuilder:FormBuilder) {
    this.signupForm = this._formbuilder.group({
-     fname: ['',Validators.required],
-     fpass: ['',Validators.required],
+     fname: ['',[Validators.required,Validators.email]],
+     fpass: ['',[Validators.required,Validators.maxLength(14),Validators.minLength(5)]],
      fphone: ['',Validators.required],
    });
 
@@ -32,14 +32,19 @@ constructor(private _formbuilder:FormBuilder,private _loginFormBuilder:FormBuild
 
 ngOnInit() {
   //to get chnage in each field.
-  this.signupForm.get('fname').valueChanges.subscribe(
-    Uname=>{
-      console.log('fname changed'+ Uname);
+  this.signupForm.get('fname').statusChanges.subscribe(
+    status=>{
+      console.log('fname status changed'+ status);
+    }
+  )
+  this.signupForm.get('fpass').statusChanges.subscribe(
+    stu=>{
+      console.log("fpass status:"+ stu);
     }
   )
 
   this.loginData.valueChanges.subscribe((Uname:formsignup)=> {
-   
+   //for getting all values of form (Make a formsignup.ts file for this.)
     console.log("logName Changed"+"  "+Uname.logName);
     console.log("logPass change"+"   "+Uname.logPass);
 
