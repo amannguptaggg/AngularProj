@@ -3,67 +3,41 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-
-  <div class="container-fluid">
-    <div class="row mt-3">
-     <div class="col-lg-6" [ngClass]="['classThree']">
-      <form [formGroup]="signupForm">
-        <h2 class="text-center"> Register Here </h2>
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Enter Email" formControlName="fname">
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" placeholder="Enter Password" formControlName="fpass" >
-          </div>
-          <div class="form-group">
-              <input type="tel" class="form-control" placeholder="Enter Phone" formControlName="fphone" >
+<form nonvalidate [formGroup]="FormGroup">
+  <div class="row">
+    <div class="col-12 form-group">
+      <div style="margin-top:0px;" formGroupName="itemRows">
+        <h4 class="text-center" style="margin-top:20px;font-style: unset">
+          Form Details
+        </h4>
+        <ng-container *ngIf="FormGroup.controls.itemRows != null">
+           <div *ngFor="let itemRows of FormGroup.controls.itemRows.controls; let i=index" [formGroupName]="i">
+              <div class="row">
+            <div class="col-md-2 form-group">
+              <input matInput placeholder="Name" formControlName="Name">
+            </div><div class="col-md-2 form-group">
+              <input matInput placeholder="Roll No" formControlName="Rollno">
             </div>
-            <br>
-            <div>
-              <div class="row m-0 p-0">
-                <div class="col-6">
-                <button type="submit" (click)="PostData()" [disabled]="!signupForm.valid" class="btn btn-block btn-success">LogIn</button>
-                </div>
-                <div class="col-6">
-                  <button type="submit" (click)="ResetForm()" class="btn btn-danger btn-block">Reset</button>
-                </div>
-              </div>
-            </div>  
-      </form>
-      </div>
-      <div class="col-6" [ngClass]="['classOne']">
-        <form [formGroup]="loginData">
-          <div class="form-group">
-            <input class="form-control" formControlName="logName" placeholder="Enter Name">
+            <div class="col-md-2 form-group">
+              <input matInput placeholder="Class" formControlName="Class">
+            </div>
+            <div class="col-md-2 form-group">
+              <input matInput placeholder="Mobile" formControlName="Mobile">
+            </div>
+            <div class="col-md-2 form-group">
+              <button (click)="deleteRow(i)" class="btn btn-danger">X</button>
+            </div>
+           </div>
           </div>
-          <div class="form-group">
-            <input class="form-control" formControlName="logPass" placeholder="Enter Password">
-          </div>
-          <div class="form-group">
-            <button type="submit" (click)="LoginForm()" class="btn btn-block btn-success">Login</button>
-          </div>
-        </form>
+        </ng-container>
+        <div class="form-group" style="text-align: right">
+          <button type="button" (click)="addNewRow()" [disabled]="FormGroup.invalid" class="btn btn-primary">Add New Row</button>
+        </div>
       </div>
     </div>
   </div>
-<div class="mt-5">
-   <h3 class="text-center">Form Array Form</h3>
-   <form [formGroup]="form" (ngSubmit)="subArrForm()">
-     <div formArrayName="contactNos" class="m-3">
-       <div *ngFor="let contact of form.controls.contactNos.controls; index as i">
-         <input [formControlName]="i" placeholder="contactNos">
-       </div>
-     </div>
-     <button type="submit" class="btn btn-primary px-4">Submit</button>
-   </form>
-</div>
-<div class="row mt-4">
-  <div class="col-lg-6">
-     <button (click)="addContactNo()" class="btn btn-block btn-success">Add Contact Number</button>
-  </div>
-  <div class="col-lg-6">
-     <button (click)="setPreset()" class="btn btn-block btn-success">Set Preset</button>
-  </div>
-</div>
+</form>
+
+
 <a [routerLink]="['/student']"> Load Student Portal</a>
 <router-outlet></router-outlet>

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {FormGroup,FormControl,FormBuilder,Validators,FormArray} from '@angular/forms';
-import { formsignup } from './formsignup';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,71 +7,46 @@ import { formsignup } from './formsignup';
 })
 export class AppComponent {
   title = 'My New Project';
-  value:any[];
-signupForm:FormGroup;
-loginData:FormGroup;
-emailName:string="";
-password:string="";
-phone: string="";
-logEmail:string="";
-logPassword:string="";
+   FormGroup:FormGroup;
+   TotalRow:number;
 
+   constructor(private _fb:FormBuilder){
 
-FormGroup:FormGroup;
-form:any;
+   }
 
-constructor(private _formbuilder:FormBuilder,private _loginFormBuilder:FormBuilder) {
-   this.signupForm = this._formbuilder.group({
-     fname: ['',[Validators.required,Validators.email]],
-     fpass: ['',[Validators.required,Validators.maxLength(14),Validators.minLength(5)]],
-     fphone: ['',Validators.required],
-   });
+   ngOnInit():void {
+    this.FormGroup = this._fb.group({
+      itemRows: this._fb.array([this.initItemRow()]),
+    });
+}
 
-   this.loginData = this._loginFormBuilder.group({
-     logName: new FormControl(),
-     logPass: new FormControl(),
-   });
-  }
-
-ngOnInit() {
-  this.form = new FormGroup({
-    contactNos:new FormArray([
-      new FormControl('878934332'),
-      new FormControl('453433435')
-    ]),
+initItemRow() {
+  return this._fb.group({
+      Name:[''],
+      Rollno:[''],
+      Class:[''],
+      Mobile:['']
   });
 }
 
-addContactNo() {
-  this.form.get('contactNos').push(new FormControl());
+addNewRow() {
+  const control = <FormArray>this.FormGroup.controls['itemRows'];
+  control.push(this.initItemRow());
 }
 
-subArrForm(){
-  console.log(this.form.get('contactNos').value);
-  console.log(this.form.value);
-}
+deleteRow(index:number) {
+  const control  = <FormArray> this.FormGroup.controls['itemRows'];
+    if(control != null) {
+      this.TotalRow = control.value.length;
+    }
 
-setPreset() {
-  this.form.get('contactNos').patchValue(['12345678','123456755']);
-}
+    if(this.TotalRow > 1) {
+      control.removeAt(index);
 
-// Getting Each Field  Value.
-PostData() {
-  this.emailName= this.signupForm.get('fname').value;
-  this.password= this.signupForm.get('fpass').value;
-  this.phone= this.signupForm.get('fphone').value;
-  alert(this.emailName+" "+this.password+" "+this.phone);
-}
-//Getting all value form the form.
-LoginForm() {
-  this.logEmail = this.loginData.value;
-  console.log(this.logEmail);
-}
-
-ResetForm() {
-  this.signupForm.reset({
-    fname:'xyz@gmail.com'
-  });
+    } else {
+      alert('One record is mendatory');
+      return false;
+    }
 }
 
 }
