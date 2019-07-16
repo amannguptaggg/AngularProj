@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import {FormGroup,FormControl,FormBuilder,Validators,FormArray} from '@angular/forms';
+import {FormGroup,FormControl,FormBuilder,Validators,FormArray, NgForm} from '@angular/forms';
+import {User} from "./user"
+import { format } from 'path';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,46 +9,31 @@ import {FormGroup,FormControl,FormBuilder,Validators,FormArray} from '@angular/f
 })
 export class AppComponent {
   title = 'My New Project';
-   FormGroup:FormGroup;
-   TotalRow:number;
+   user = new User();
 
-   constructor(private _fb:FormBuilder){
+   constructor() {}
 
+   onFormSubmit(form:NgForm) {
+     if(form.invalid){
+       return;
+     }
+     console.log('User Name:'+form.controls['uName'].value);
+     console.log('Gender Name:'+form.controls['gender'].value);
+     console.log('User Married:'+form.controls['married'].value);
+     console.log('User T & C:'+form.controls['tc'].value);
    }
 
-   ngOnInit():void {
-    this.FormGroup = this._fb.group({
-      itemRows: this._fb.array([this.initItemRow()]),
-    });
-}
+   resetForm(form:NgForm) {
+     this.user= new User();
+     form.resetForm({
+        married:false
+   });
+   }
 
-initItemRow() {
-  return this._fb.group({
-      Name:[''],
-      Rollno:[''],
-      Class:[''],
-      Mobile:['']
-  });
-}
-
-addNewRow() {
-  const control = <FormArray>this.FormGroup.controls['itemRows'];
-  control.push(this.initItemRow());
-}
-
-deleteRow(index:number) {
-  const control  = <FormArray> this.FormGroup.controls['itemRows'];
-    if(control != null) {
-      this.TotalRow = control.value.length;
-    }
-
-    if(this.TotalRow > 1) {
-      control.removeAt(index);
-
-    } else {
-      alert('One record is mendatory');
-      return false;
-    }
-}
-
+   setDefault() {
+     this.user.userName="Name";
+     this.user.gender="Gender";
+     this.user.isMarried=false;
+     this.user.isTCAccepted=true;
+   }
 }

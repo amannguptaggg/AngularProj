@@ -3,41 +3,48 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-<form nonvalidate [formGroup]="FormGroup">
-  <div class="row">
-    <div class="col-12 form-group">
-      <div style="margin-top:0px;" formGroupName="itemRows">
-        <h4 class="text-center" style="margin-top:20px;font-style: unset">
-          Form Details
-        </h4>
-        <ng-container *ngIf="FormGroup.controls.itemRows != null">
-           <div *ngFor="let itemRows of FormGroup.controls.itemRows.controls; let i=index" [formGroupName]="i">
-              <div class="row">
-            <div class="col-md-2 form-group">
-              <input matInput placeholder="Name" formControlName="Name">
-            </div><div class="col-md-2 form-group">
-              <input matInput placeholder="Roll No" formControlName="Rollno">
-            </div>
-            <div class="col-md-2 form-group">
-              <input matInput placeholder="Class" formControlName="Class">
-            </div>
-            <div class="col-md-2 form-group">
-              <input matInput placeholder="Mobile" formControlName="Mobile">
-            </div>
-            <div class="col-md-2 form-group">
-              <button (click)="deleteRow(i)" class="btn btn-danger">X</button>
-            </div>
-           </div>
-          </div>
-        </ng-container>
-        <div class="form-group" style="text-align: right">
-          <button type="button" (click)="addNewRow()" [disabled]="FormGroup.invalid" class="btn btn-primary">Add New Row</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<h2 class="text-center mt-3">Template Driven Form</h2>
+
+<form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)">
+ <table>
+   <tr>
+     <td>Name</td>
+     <td><input name="uName" [ngModel]="user.userName" required #uName="ngModel">
+      <div *ngIf="uName.invalid" [ngClass]="error">Valid Name Require</div>
+    </td>
+   </tr>
+   <tr>
+     <td>Gender</td>
+     <td>
+       <input type="radio" value="male" name="gender" [ngModel]="user.gender" required #gender="ngModel"> Male
+       <input type="radio" value="female" name="gender" [ngModel]="user.gender" required #gender="ngModel"> Female
+     <div *ngIf="gender.invalid">Gender Require</div>
+     </td>
+   </tr>
+   <tr>
+     <td>Are You Married?</td>
+     <td>
+       <input type="checkbox" name="married" [ngModel]="user.isMarried">
+     </td>
+   </tr>
+   <tr>
+     <td>
+       *Accept Terms and Conditions
+     </td>
+     <td>
+       <input type="checkbox" name="tc" [ngModel]="user.isTCAccepted" required #tc="ngModel">
+       <div *ngIf="tc.invalid">
+         Accept T & C
+       </div>
+     </td>
+   </tr>
+   <tr>
+     <td colspan="2">
+      <button class="btn btn-success">Submit</button>
+      <button class="btn btn-primary" type="button" (click)="setDefault()">Set Default</button>
+      <button type="button" class="btn btn-danger" (click)="resetForm(userForm)">Reset</button>
+     </td>
+   </tr>
+ </table>
+
 </form>
-
-
-<a [routerLink]="['/student']"> Load Student Portal</a>
-<router-outlet></router-outlet>
