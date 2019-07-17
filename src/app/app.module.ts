@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StudentPortalComponent } from './student-portal/student-portal.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
@@ -23,7 +22,6 @@ MatCheckboxModule,
 @NgModule({
   declarations: [
     AppComponent,
-    StudentPortalComponent
   ],
   imports: [
     BrowserModule,
