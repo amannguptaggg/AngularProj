@@ -1,22 +1,43 @@
 <mat-toolbar color="accent">
-    <span>Using Material Design</span>
+    <span>Using Material Design With Form</span>
 </mat-toolbar>
+
 <mat-card>
-    <mat-card-title>
-      This is my Card-title
+    <mat-card-title class="text-center">
+      Reactive Form With ng Material
     </mat-card-title>
-    <mat-card-subtitle>
-      Card Subtitle
-    </mat-card-subtitle>
-    <mat-card-content>
-      <form class="example-form">
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Favorite food">
-          </mat-form-field>
-        <br>
-          <mat-form-field class="example-full-width">
-            <textarea matInput placeholder="Leave a comment"></textarea>
-          </mat-form-field>
-        </form>
-    </mat-card-content>
+  <mat-card-content>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+    <form [formGroup]="regForm" (ngSubmit)="onFormSubmit(regForm.value)" >
+        <div class="example-container">
+            <mat-form-field>
+              <input matInput placeholder="First Name" formControlName="firstName">
+            </mat-form-field> 
+            <mat-error *ngIf="!regForm.get('firstName').valid && regForm.get('firstName').touched">
+              <span>Please enter a valid name</span>
+            </mat-error>
+            <mat-form-field>
+                <input matInput placeholder="Last Name" formControlName="lastName">
+              </mat-form-field> 
+              <mat-error *ngIf="!regForm.get('lastName').valid && regForm.get('lastName').touched">
+                  <span>Please enter a valid last</span>
+                </mat-error>
+              <mat-form-field>
+                  <input matInput [matDatepicker]="picker" placeholder="Date Of Birth" formControlName="dob">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker touchUi #picker></mat-datepicker>
+                </mat-form-field>
+                <mat-error *ngIf="!regForm.get('dob').valid && regForm.get('dob').touched">
+                    <span>Choose Birth date</span>
+                  </mat-error>
+                <mat-checkbox formControlName="IsAccepted" (change)="OnChange($event)">*Agree Terms & Conditions</mat-checkbox>
+                <button mat-raised-button color="accent" [disabled]="!regForm.valid || IsAccepted==0">Submit</button>
+        </div>      
+    </form>
+    </div>
+    </div>
+    </div>
+  </mat-card-content>
 </mat-card>

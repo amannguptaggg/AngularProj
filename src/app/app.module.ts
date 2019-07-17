@@ -17,7 +17,8 @@ MatInputModule,
 MatDatepickerModule,
 MatNativeDateModule,
 MatRadioModule,
-MatSlideToggleModule        
+MatSlideToggleModule,
+MatCheckboxModule,
 } from '@angular/material';
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ MatSlideToggleModule
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatCheckboxModule,
 MatMenuModule,
 MatToolbarModule,
 MatIconModule,
@@ -40,7 +42,7 @@ MatInputModule,
 MatDatepickerModule,
 MatNativeDateModule,
 MatRadioModule,
-MatSlideToggleModule
+MatSlideToggleModule,
   ],
   exports:[
 MatButtonModule,
@@ -53,7 +55,8 @@ MatInputModule,
 MatDatepickerModule,
 MatNativeDateModule,
 MatRadioModule,
-MatSlideToggleModule
+MatSlideToggleModule,
+MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
