@@ -1,18 +1,7 @@
-<div class="container-fluid">
-  <div class="row" style="background-color: black;color:blanchedalmond">
-    <div class="col-lg-12">
-      <h2 class="text-center">Welcome To Raising Tech</h2>
-    </div>
-  </div>
- <div class="row">
-   <div class="col-lg-2 col-3" [ngClass]="['companyList']" style="background-color:cyan;height:100vh">
-    <ul class="mt-5">
-      <li><a>Company</a></li>
-      <li><a>Customers</a></li>
-    </ul>
-   </div>
-   <div class="col-lg-10 col-9" style="height:400px">
-    <router-outlet> </router-outlet>
-   </div>
- </div>
-</div>
+<h1 class="text-center">{{title}}</h1>
+
+<ul>
+  <li *ngFor="let bk of ourBooks">
+    Id: {{bk.id}},Name: {{bk.name}}, Catgegory : {{bk.catgegory}}
+  </li>
+</ul>
