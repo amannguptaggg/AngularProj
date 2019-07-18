@@ -14,4 +14,8 @@ import {CompanyComponent} from './company.component'
     CompanyRoutingModule
   ]
 })
-export class CompanyModule { }
+export class CompanyModule {
+  constructor() {
+    console.log('company module is loaded');
+  }
+ }
