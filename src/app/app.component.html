@@ -1,5 +1,12 @@
-<div class="container">
- 
+<div class="container-fluid">
+ <div class="row">
+   <div class="col-lg-2" [ngClass]="['companyList']" style="background-color:cyan;height:100vh">
+    <ul class="mt-5">
+      <li><a routerLink="company" routerLinkActive="active">Company</a></li>
+    </ul>
+   </div>
+   <div class="col-lg-10" style="height:400px">
+    <router-outlet> </router-outlet>
+   </div>
+ </div>
 </div>
-
-<router-outlet></router-outlet>
