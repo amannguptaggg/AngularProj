@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path:'customers',
     loadChildren:'src/app/customers/customers.module#CustomersModule',
-    data:{ preload:true }
+    data:{ preload:true,delay:true }
   }
 ];
 
