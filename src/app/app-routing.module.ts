@@ -7,6 +7,10 @@ const routes: Routes = [
     path:'company',
     loadChildren:'src/app/company/company.module#CompanyModule'
   },
+  {
+    path:'customers',
+    loadChildren:'src/app/customers/customers.module#CustomersModule'
+  }
 ];
 
 @NgModule({

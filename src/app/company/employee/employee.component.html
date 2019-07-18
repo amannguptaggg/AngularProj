@@ -1,1 +1,14 @@
-<p>employee works!</p>
+<div class="container-fluid m-0 p-0">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center">Welcome To Employee List</h2>
+                <br>
+                <h3>Here are our employee list:</h3>
+                <div>
+                    <ul *ngFor="let s of employee">
+                        <li>{{s.name}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>

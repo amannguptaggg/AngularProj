@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-employee',
-  templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.css']
+  selector: 'app-customers',
+  templateUrl: './customers.component.html',
+  styleUrls: ['./customers.component.css']
 })
-export class EmployeeComponent implements OnInit {
-   employee:any;
-  constructor() {
-    console.log('employee  list loaded');
-   }
+export class CustomersComponent implements OnInit {
+  customer:any;
+  constructor() { }
 
   ngOnInit() {
-    this.employee=[
+    this.customer=[
       {
         name:'Amit',
       },
