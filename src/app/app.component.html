@@ -1,7 +1,9 @@
 <h1 class="text-center">{{title}}</h1>
 
+<button class="btn btn-primary" (click)="getBooks();">Get Book From Store</button>
+
 <ul>
-  <li *ngFor="let bk of ourBooks">
+  <li *ngFor="let bk of ourBooks | async">
     Id: {{bk.id}},Name: {{bk.name}}, Catgegory : {{bk.catgegory}}
   </li>
 </ul>

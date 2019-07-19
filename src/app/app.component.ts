@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Book } from './book';
 import { BookService } from './book.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +9,16 @@ import { BookService } from './book.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title='Using In Momory Web API';
-  ourBooks:Book[];
+  title='Using Memory In Web API';
+  ourBooks:Observable<Book[]>
 
   constructor(private bookService:BookService) {
   }
 
    ngOnInit() {
-     this.getBooks();
+    
    }
   getBooks() {
-    this.bookService.getBooksFromStore().subscribe(books=>this.ourBooks=books);
+   this.ourBooks = this.bookService.getBooksFromStore();
   }
 }
