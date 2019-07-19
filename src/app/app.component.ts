@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title='Using Memory In Web API';
-  ourBooks:Observable<Book[]>
+  ourBooks:Observable<Book>
 
   constructor(private bookService:BookService) {
   }
@@ -19,6 +19,6 @@ export class AppComponent {
     
    }
   getBooks() {
-   this.ourBooks = this.bookService.getBooksFromStore();
+   this.ourBooks = this.bookService.getBooksFromStore(200);
   }
 }

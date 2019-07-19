@@ -2,8 +2,16 @@
 
 <button class="btn btn-primary" (click)="getBooks();">Get Book From Store</button>
 
-<ul>
+<!-- <ul>
   <li *ngFor="let bk of ourBooks | async">
     Id: {{bk.id}},Name: {{bk.name}}, Catgegory : {{bk.catgegory}}
   </li>
-</ul>
+</ul> -->
+<br>
+<div *ngIf="ourBooks|async as bk;else loading">
+  Id: {{bk.id}},Name: {{bk.name}}, Catgegory : {{bk.catgegory}}
+</div>
+<br>
+<ng-template #loading>
+  <img src="assets/image/loading.gif">
+</ng-template>

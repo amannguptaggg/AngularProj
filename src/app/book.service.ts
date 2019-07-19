@@ -10,7 +10,7 @@ export class BookService {
 
 constructor(private http:HttpClient) {}
 
-  getBooksFromStore():Observable<Book[]> {
-    return this.http.get<Book[]>(this.bookUrl);
+  getBooksFromStore(id:number):Observable<Book> {
+    return this.http.get<Book>(this.bookUrl+"/"+id);
   }
 }
