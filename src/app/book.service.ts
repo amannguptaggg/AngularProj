@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Book} from './book';
 
 @Injectable() 
@@ -10,7 +10,19 @@ export class BookService {
 
 constructor(private http:HttpClient) {}
 
-  getBooksFromStore(id:number):Observable<Book> {
-    return this.http.get<Book>(this.bookUrl+"/"+id);
+  createBook(book:Book):Observable<Book> {
+ let httpheaders = new HttpHeaders()
+ .set('content-type','application/json');
+
+ let options={
+   headers:httpheaders
+ };
+
+ return this.http.post<Book>(this.bookUrl,book,options);
+ 
+}
+
+  getBooksFromStore():Observable<Book[]> {
+    return this.http.get<Book[]>(this.bookUrl);
   }
 }

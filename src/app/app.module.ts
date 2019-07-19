@@ -6,6 +6,7 @@ import {BookService} from './book.service';
 import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {TestData} from './testData';
 import {HttpClientModule} from '@angular/common/http';
+import {ReactiveFormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    InMemoryWebApiModule.forRoot(TestData)
+    InMemoryWebApiModule.forRoot(TestData),
+    ReactiveFormsModule
   ],
   providers: [BookService],
   bootstrap: [AppComponent]

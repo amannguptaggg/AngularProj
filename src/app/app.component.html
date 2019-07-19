@@ -1,21 +1,63 @@
 <h1 class="text-center">{{title}}</h1>
 
-<button class="btn btn-primary" (click)="getBooks();">Get Book From Store</button>
+<h3 class="text-center">Angular HttpClient POST</h3> <br>
+<p *ngIf="datasaved" ngClass="success">
+Record Saved Successfully!!! 
+</p>
 
-<!-- <ul>
-  <li *ngFor="let bk of ourBooks | async">
-    Id: {{bk.id}},Name: {{bk.name}}, Catgegory : {{bk.catgegory}}
-  </li>
-</ul> -->
-<br>
-<!-- <div *ngIf="ourBooks|async as bk;else loading">
-  Id: {{bk.id}},Name: {{bk.name}}, Catgegory : {{bk.catgegory}}
+<div>
+  <form [formGroup]="bookForm" (ngSubmit)="onFormSubmit()">
+    <table>
+      <tr>
+        <td>Name:</td>
+        <td><input formControlName="name"></td>
+      </tr>
+      <tr>
+        <td>Catgegoy:</td>
+        <td><input formControlName="catgegory"></td>
+      </tr>
+      <tr>
+        <td>Writer:</td>
+        <td><input formControlName="writer"></td>
+      </tr>
+      <tr>
+        <td>
+          <button [disabled]="!bookForm.valid">Insert Book</button>
+        </td>
+      </tr>
+    </table>
+  </form>
 </div>
-<br>
-<ng-template #loading>
-  <img src="assets/image/loading.gif">
-</ng-template> -->
 
-<div *ngIf="ourBooks">
-  {{ourBooks}}
+
+
+
+
+<!-- <button class="btn btn-primary" (click)="getBooks();">Get Book From Store</button> -->
+<div class="mt-5 p-4 float-left">
+<h5>View Data:</h5>
+
+<table border="2px">
+  <tr>
+    <td>
+      Id:
+    </td>
+    <td>
+      Name:
+    </td>
+    <td>
+      Catgegoy:
+    </td>
+    <td>
+      Writer:
+    </td>
+  </tr>
+
+  <tr *ngFor="let bk of allBooks | async">
+  <td> {{bk.id}}</td>
+  <td> {{bk.name}}</td>
+  <td> {{bk.catgegory}}</td>
+  <td> {{bk.writer}}</td>
+  </tr>
+</table>
 </div>
