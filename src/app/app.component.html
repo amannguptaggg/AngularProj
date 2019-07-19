@@ -8,10 +8,14 @@
   </li>
 </ul> -->
 <br>
-<div *ngIf="ourBooks|async as bk;else loading">
+<!-- <div *ngIf="ourBooks|async as bk;else loading">
   Id: {{bk.id}},Name: {{bk.name}}, Catgegory : {{bk.catgegory}}
 </div>
 <br>
 <ng-template #loading>
   <img src="assets/image/loading.gif">
-</ng-template>
+</ng-template> -->
+
+<div *ngIf="ourBooks | async as bookName">
+  {{bookName}}
+</div>

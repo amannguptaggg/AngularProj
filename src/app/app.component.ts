@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Book } from './book';
 import { BookService } from './book.service';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
+import {map} from 'rxjs/operators'
+
 
 @Component({
   selector: 'app-root',
@@ -10,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title='Using Memory In Web API';
-  ourBooks:Observable<Book>
+  ourBooks:Observable<string>;
 
   constructor(private bookService:BookService) {
   }
@@ -19,6 +21,6 @@ export class AppComponent {
     
    }
   getBooks() {
-   this.ourBooks = this.bookService.getBooksFromStore(200);
+   this.ourBooks = this.bookService.getBooksFromStore(200).pipe(map(book=>'Name:'+book.name));
   }
 }
