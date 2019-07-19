@@ -12,7 +12,7 @@ import {map} from 'rxjs/operators'
 })
 export class AppComponent {
   title='Using Memory In Web API';
-  ourBooks:Observable<string>;
+  ourBooks:string
 
   constructor(private bookService:BookService) {
   }
@@ -21,6 +21,9 @@ export class AppComponent {
     
    }
   getBooks() {
-   this.ourBooks = this.bookService.getBooksFromStore(200).pipe(map(book=>'Name:'+book.name));
+  //  this.ourBooks = this.bookService.getBooksFromStore(200).pipe(map(book=>'Name:'+book.name));
+   this.bookService.getBooksFromStore(100).pipe(map(book=>book.name)).subscribe(name=>{
+this.ourBooks = name;
+   });
   }
 }
