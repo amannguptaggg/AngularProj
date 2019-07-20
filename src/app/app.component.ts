@@ -40,6 +40,14 @@ export class AppComponent {
 
    }
 
+
+   deleteBook(bookId:string) {
+     this.bookService.DeleteBook(bookId)
+     .subscribe(book=>{
+       this.getBooks();
+     });
+   }
+
    onFormSubmit(){
      this.datasaved = false;
      let book = this.bookForm.value;

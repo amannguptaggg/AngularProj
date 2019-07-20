@@ -54,6 +54,9 @@ Record Saved Successfully!!!
     <td>
       Update
     </td>
+    <td>
+      Delete
+    </td>
   </tr>
 
   <tr *ngFor="let bk of allBooks | async">
@@ -62,6 +65,7 @@ Record Saved Successfully!!!
   <td> {{bk.catgegory}}</td>
   <td> {{bk.writer}}</td>
   <td><button type="button" class="btn" (click)="updateBook(bk.id)">Edit</button></td>
-  </tr>
+  <td><button (click)="deleteBook(bk.id)" class="btn btn-danger">Delete</button></td>  
+</tr>
 </table>
 </div>

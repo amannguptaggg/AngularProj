@@ -39,6 +39,21 @@ updateBook(book:Book):Observable<number> {
   
  }
 
+ DeleteBook(bookId:string):Observable<number> {
+  let httpheaders = new HttpHeaders()
+  .set('content-type','application/json');
+ 
+  let options={
+    headers:httpheaders
+  };
+ 
+  return this.http.delete<number>(this.bookUrl+'/'+bookId);
+  
+ }
+
+
+
+
   getBooksFromStore():Observable<Book[]> {
     return this.http.get<Book[]>(this.bookUrl);
   }
