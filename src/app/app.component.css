@@ -1,0 +1,35 @@
+.menu-container{
+background-color: cornflowerblue;
+padding: 1px;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-size: 20px;
+height: 100vh;
+}
+.menu-text{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: whitesmoke;
+    margin-top: 5px;
+    background-color: blue;
+}
+
+.parent-menu{
+    margin-top: 10px;
+    text-align: center;
+}
+.parent-menu ul{
+    list-style-type:none;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+.parent-menu ul li{
+    padding-top: 3px;
+
+}
+.parent-menu ul li a{
+ color: white;
+ text-decoration: none;
+}
+.parent-menu ul li:hover{
+    background-color: darkblue;
+}

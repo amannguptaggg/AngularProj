@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { AdminComponent } from './admin/admin.component';
 import { ActivateGuard } from './activate.guard';
 import { UserService } from './user.service';
+import { HomeComponent } from './home/home.component';
+import {AppRoutes} from './Routing';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminComponent
+    AdminComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
