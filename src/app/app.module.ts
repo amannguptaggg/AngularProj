@@ -10,6 +10,9 @@ import { HomeComponent } from './home/home.component';
 import {AppRoutes} from './Routing';
 import { MerchantComponent } from './merchant/merchant.component';
 import { DeactivateGuard } from './deactivate.guard';
+import { CustomerComponent } from './customer/customer.component';
+import { AddCustomerComponent } from './add-customer/add-customer.component';
+import { ActivateChildGuard } from './activate-child.guard';
 
 
 @NgModule({
@@ -17,13 +20,15 @@ import { DeactivateGuard } from './deactivate.guard';
     AppComponent,
     AdminComponent,
     HomeComponent,
-    MerchantComponent
+    MerchantComponent,
+    CustomerComponent,
+    AddCustomerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [ActivateGuard,UserService,DeactivateGuard],
+  providers: [ActivateGuard,UserService,DeactivateGuard,ActivateChildGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
