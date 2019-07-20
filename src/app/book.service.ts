@@ -10,7 +10,11 @@ export class BookService {
 
 constructor(private http:HttpClient) {}
 
-  createBook(book:Book):Observable<Book> {
+getBookById(bookId:string) {
+return this.http.get<Book>(this.bookUrl+'/'+bookId);
+}
+
+createBook(book:Book):Observable<Book> {
  let httpheaders = new HttpHeaders()
  .set('content-type','application/json');
 
@@ -21,6 +25,19 @@ constructor(private http:HttpClient) {}
  return this.http.post<Book>(this.bookUrl,book,options);
  
 }
+
+
+updateBook(book:Book):Observable<number> {
+  let httpheaders = new HttpHeaders()
+  .set('content-type','application/json');
+ 
+  let options={
+    headers:httpheaders
+  };
+ 
+  return this.http.put<number>(this.bookUrl+'/'+book.id,book,options);
+  
+ }
 
   getBooksFromStore():Observable<Book[]> {
     return this.http.get<Book[]>(this.bookUrl);

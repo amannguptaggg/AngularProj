@@ -12,10 +12,11 @@ import {FormGroup,FormBuilder,Validator, Validators} from '@angular/forms'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title='Using Memory In Web API';
+  title='Using Memory In';
   datasaved = false;
   bookForm: FormGroup;
-  allBooks:Observable<Book[]>
+  allBooks:Observable<Book[]>;
+  bookIdToUpdate=null;
 
   constructor(private _formBuilder:FormBuilder,private bookService:BookService) {
   }
@@ -29,6 +30,16 @@ export class AppComponent {
     this.getBooks();
    }
 
+   updateBook(bookId:string){
+     this.bookService.getBookById(bookId).subscribe(book=>{
+       this.bookIdToUpdate= bookId;
+       this.bookForm.controls['name'].setValue(book.name);
+       this.bookForm.controls['catgegory'].setValue(book.catgegory);
+       this.bookForm.controls['writer'].setValue(book.writer);
+      });
+
+   }
+
    onFormSubmit(){
      this.datasaved = false;
      let book = this.bookForm.value;
@@ -38,12 +49,23 @@ export class AppComponent {
    };
 
    createBooks(book:Book) {
+     if(this.bookIdToUpdate==null){
      this.bookService.createBook(book).subscribe(
        book=>{
          this.datasaved=true;
          this.getBooks()
+         this.bookIdToUpdate = null;
        }
      )
+      } else {
+       book.id = this.bookIdToUpdate;
+       this.bookService.updateBook(book)
+       .subscribe(book=>{
+        this.datasaved = true;
+        this.getBooks();
+        this.bookIdToUpdate = null;
+       })
+      }
    }
   getBooks() {
   //  this.ourBooks = this.bookService.getBooksFromStore(200).pipe(map(book=>'Name:'+book.name));

@@ -1,6 +1,6 @@
-<h1 class="text-center">{{title}}</h1>
+<h1 class="text-center mt-5"><a style="background-color:tomato;padding:5px;">Uisng Memory</a> <a style="background-color:blueviolet;padding:5px;color:whitesmoke">In Web API </a></h1>
 
-<h3 class="text-center">Angular HttpClient POST</h3> <br>
+<h3 class="text-center" style="padding:2px;background-color:red;color:white">Angular HttpClient POST</h3> <br>
 <p *ngIf="datasaved" ngClass="success">
 Record Saved Successfully!!! 
 </p>
@@ -51,6 +51,9 @@ Record Saved Successfully!!!
     <td>
       Writer:
     </td>
+    <td>
+      Update
+    </td>
   </tr>
 
   <tr *ngFor="let bk of allBooks | async">
@@ -58,6 +61,7 @@ Record Saved Successfully!!!
   <td> {{bk.name}}</td>
   <td> {{bk.catgegory}}</td>
   <td> {{bk.writer}}</td>
+  <td><button type="button" class="btn" (click)="updateBook(bk.id)">Edit</button></td>
   </tr>
 </table>
 </div>
