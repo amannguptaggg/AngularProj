@@ -10,8 +10,15 @@ export class CompanyComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    localStorage.setItem('localStorage','Aman Gupta');
+
+    let obj = {fnmae:'Aman',id:2}
+    
+    localStorage.setItem('UserId',JSON.stringify(obj));
+
+    localStorage.setItem('localStorage','Ranuj ');
     sessionStorage.setItem('sessionStorage','session Data');
+
+
   }
 
 }
