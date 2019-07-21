@@ -1,8 +1,0 @@
-<h2 class="text-center">Book Details</h2>
-
-<ul ngClass="home">
-    <li *ngFor="let book of books"> 
-        Id: {{book.id}} ====> Name: {{book.name}} |
-        <a [routerLink]="['/viewDetails',book.id]">Show Details..>></a>
-    </li>
-</ul>
