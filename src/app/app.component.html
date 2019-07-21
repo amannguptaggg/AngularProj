@@ -1,1 +1,15 @@
-<h1 class="text-center"> WELCOME</h1>
+<div class="container-fluid p-0">
+    <div  class="row">
+        <div class="col-lg-2" ngClass="menu-container">
+                <nav ngClass="parent-menu">
+                        <ul>
+                            <li><a routerLink="/company" routerLinkActive="active">Company</a></li>
+                            <li><a routerLink="/person" routerLinkActive="active">Person</a></li>
+                    </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<div>
+        <router-outlet> </router-outlet>
+</div>
