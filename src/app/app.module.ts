@@ -13,6 +13,8 @@ import { DeactivateGuard } from './deactivate.guard';
 import { CustomerComponent } from './customer/customer.component';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { ActivateChildGuard } from './activate-child.guard';
+import { ViewDetailsComponent } from './view-details/view-details.component';
+import { BookServiceService } from './book-service.service';
 
 
 @NgModule({
@@ -22,13 +24,14 @@ import { ActivateChildGuard } from './activate-child.guard';
     HomeComponent,
     MerchantComponent,
     CustomerComponent,
-    AddCustomerComponent
+    AddCustomerComponent,
+    ViewDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [ActivateGuard,UserService,DeactivateGuard,ActivateChildGuard],
+  providers: [ActivateGuard,UserService,DeactivateGuard,ActivateChildGuard,BookServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
