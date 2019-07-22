@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,11 @@ export class AppComponent {
 
 constructor() {}
 ngOnInit() { 
- 
+ $(document).ready(function(){
+   $('.btnC').click(function(){
+     $('.boxx').hide();
+   })
+ })
 }
 
 }
