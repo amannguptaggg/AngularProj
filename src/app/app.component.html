@@ -1,15 +1,16 @@
 <div class="container-fluid p-0">
     <div  class="row">
-        <div class="col-lg-2" ngClass="menu-container">
+        <div class="col-2" ngClass="menu-container">
                 <nav ngClass="parent-menu">
                         <ul>
-                            <li><a routerLink="/company" routerLinkActive="active">Company</a></li>
-                            <li><a routerLink="/person" routerLinkActive="active">Person</a></li>
+                            <li><a routerLink="./company" routerLinkActive="active">Company</a></li>
+                            <li><a [routerLink]="[{outlets:{bookList:['person']}}]" routerLinkActive="active">Book Details</a></li>
                     </ul>
             </nav>
         </div>
+        <div class="col-10">
+            <router-outlet> </router-outlet>
+            <router-outlet name="bookList"></router-outlet>
+        </div>
     </div>
-</div>
-<div>
-        <router-outlet> </router-outlet>
 </div>

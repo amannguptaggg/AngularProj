@@ -10,7 +10,8 @@ const routes: Routes = [
   },
   {
     path:'person',
-    component:PersonComponent
+    component:PersonComponent,
+    outlet:'bookList'
   },
   {
     path:'**',

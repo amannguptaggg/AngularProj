@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CompanyService } from '../company.service';
+import { Book } from '../book';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-person',
@@ -7,26 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonComponent implements OnInit {
 
-  constructor() { }
+  books:Observable<Book[]>
+
+  constructor(private _bookService:CompanyService,private router:Router) { }
 
   ngOnInit() {
-    sessionStorage.clear();
-    console.log(localStorage.getItem('localStorage'));
-    console.log(sessionStorage.getItem('sessionStorage'));
-    console.log(JSON.parse(localStorage.getItem('UserId')));
-    if(window.localStorage) {
-      alert('supported');
-    }else {
-      alert('Not supported');
-    }
-
-    if(sessionStorage.length>0) {
-      alert('Data Found'+sessionStorage.length);
-    }else {
-      alert('Data not Found');
-    }
-
+  this.books=this._bookService.getBooks();
   }
 
+  close() {
+    this.router.navigate([{outlets:{bookList:null}}])
+  }
 
 }

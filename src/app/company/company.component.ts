@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Book } from '../book';
+import { CompanyService } from '../company.service';
 
 @Component({
   selector: 'app-company',
@@ -7,18 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyComponent implements OnInit {
 
-  constructor() { }
+  books:Observable<Book[]>
+
+  constructor(private _bookService:CompanyService) { }
 
   ngOnInit() {
-
-    let obj = {fnmae:'Aman',id:2}
-    
-    localStorage.setItem('UserId',JSON.stringify(obj));
-
-    localStorage.setItem('localStorage','Ranuj ');
-    sessionStorage.setItem('sessionStorage','session Data');
-
-
+  this.books=this._bookService.getBooks();
   }
 
 }
