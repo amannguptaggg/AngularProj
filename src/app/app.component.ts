@@ -13,11 +13,7 @@ export class AppComponent {
 
 constructor() {}
 ngOnInit() { 
- $(document).ready(function(){
-   $('.btnC').click(function(){
-     $('.boxx').hide();
-   })
- })
+ 
 }
 
 }
