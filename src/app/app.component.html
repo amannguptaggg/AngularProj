@@ -9,17 +9,16 @@
             </nav>
         </div>
         <div class="col-10">
-           <div>Div Section</div>
-        <button (click)="display()">^</button>
-    
-               <ng-template [ngIf]="value">
-                <div class="row">
-                    <div class="col-4">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam ipsa facilis quia temporibus libero at similique illo neque excepturi sunt. Fugiat doloremque vel nobis quam minima facere quo officia laboriosam!
-                    </div>
-                </div>
-               </ng-template>
-            
+           <div *ngIf="value;else elseBlock">
+               True is showing Here
+           </div>
+           <ng-template #elseBlock>
+               <div>
+                    This is else block
+               </div>
+           </ng-template>
         </div>
     </div>
 </div>
+
+<ng-template ngFor let-book [ngForOf]=”books” let i=index> {{book.id}} </ng-template>
