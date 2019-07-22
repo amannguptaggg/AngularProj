@@ -10,12 +10,11 @@ import { CompanyService } from '../company.service';
 })
 export class CompanyComponent implements OnInit {
 
-  books:Observable<Book[]>
+ 
 
-  constructor(private _bookService:CompanyService) { }
+  constructor() { }
 
   ngOnInit() {
-  this.books=this._bookService.getBooks();
   }
 
 }

@@ -11,7 +11,6 @@ const routes: Routes = [
   {
     path:'person',
     component:PersonComponent,
-    outlet:'bookList'
   },
   {
     path:'**',

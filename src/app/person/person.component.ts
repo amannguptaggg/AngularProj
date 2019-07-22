@@ -11,16 +11,9 @@ import { Router } from '@angular/router';
 })
 export class PersonComponent implements OnInit {
 
-  books:Observable<Book[]>
-
-  constructor(private _bookService:CompanyService,private router:Router) { }
+  
+  constructor() { }
 
   ngOnInit() {
-  this.books=this._bookService.getBooks();
   }
-
-  close() {
-    this.router.navigate([{outlets:{bookList:null}}])
-  }
-
 }
