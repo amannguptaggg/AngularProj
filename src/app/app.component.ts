@@ -10,25 +10,9 @@ export class AppComponent {
   title = 'Project Routing';
 
 
-constructor(private el:ElementRef,private render:Renderer) {}
+constructor() {}
 ngOnInit() { 
  
 }
-
-@HostListener('click') onclick() {
-  alert('Clicked');
-}
-
-@HostListener('mouseover') mouseover() {
-  this.ChnagebgColor('red');
-}
-@HostListener('mouseleave') onmouseleave() {
-  this.ChnagebgColor('blue');
-}
-
-ChnagebgColor(color:string) {
-  this.render.setElementStyle(this.el.nativeElement,'color',color);
-}
-
 
 }
