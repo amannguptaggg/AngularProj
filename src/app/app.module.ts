@@ -25,6 +25,5 @@ import {CookieService} from 'ngx-cookie-service'
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
-  entryComponents:[CounterComponent,ParentCounterComponent]
 })
 export class AppModule { }
