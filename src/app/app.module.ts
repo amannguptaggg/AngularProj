@@ -8,6 +8,7 @@ import { ParentCounterComponent } from './parent-counter/parent-counter.componen
 import { ChangeColorDirective } from './change-color.directive';
 import { ParentColorComponent } from './parent-color/parent-color.component';
 import { ThemeComponent } from './theme/theme.component';
+import {CookieService} from 'ngx-cookie-service'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ThemeComponent } from './theme/theme.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [CookieService],
+  bootstrap: [AppComponent],
+  entryComponents:[CounterComponent,ParentCounterComponent]
 })
 export class AppModule { }

@@ -7,20 +7,11 @@ import { CounterComponent } from '../counter/counter.component';
   styleUrls: ['./parent-counter.component.css']
 })
 export class ParentCounterComponent implements OnInit {
-
-@ViewChild(CounterComponent,{static:false}) counterComponent:CounterComponent;
-
-increase() {
-  this.counterComponent.increaseByOne();
-}
-
-decrease() {
-  this.counterComponent.decreaseByOne();
-}
-
-  constructor() { }
+  message:string;
 
   ngOnInit() {
+    
   }
+
 
 }
