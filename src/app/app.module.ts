@@ -7,6 +7,7 @@ import { CounterComponent } from './counter/counter.component';
 import { ParentCounterComponent } from './parent-counter/parent-counter.component';
 import { ChangeColorDirective } from './change-color.directive';
 import { ParentColorComponent } from './parent-color/parent-color.component';
+import { ThemeComponent } from './theme/theme.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ParentColorComponent } from './parent-color/parent-color.component';
     ParentCounterComponent,
     ChangeColorDirective,
     ParentColorComponent,
+    ThemeComponent,
   ],
   imports: [
     BrowserModule,
